@@ -18,7 +18,7 @@ COPY --from=frontend /frontend-build/dist ./server/dist
 RUN go build -o memos ./main.go
 
 # Make workspace with above generated files.
-FROM alpine:3.16 AS monolithic
+FROM alpine:3.19 AS monolithic
 WORKDIR /usr/local/memos
 
 COPY --from=backend /backend-build/memos /usr/local/memos/
